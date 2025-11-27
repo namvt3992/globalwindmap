@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Wind Power Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-    
-    <!-- CẬP NHẬT: Thêm thư viện Choices.js cho bộ lọc tìm kiếm -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- ===== THANH FILTERS VÀ BỘ CHỌN BẢN ĐỒ ===== -->
+    <!-- ===== MAP CONTROLS ===== -->
     <header class="map-controls">
-        <!-- Bộ chọn bản đồ sẽ được JS chèn vào đây -->
         <div class="filter-container">
             <div class="filter-group">
                 <label for="country-filter">Country:</label>
-                <!-- Select này sẽ được Choices.js biến đổi -->
                 <select id="country-filter">
                     <option value="all">All Countries</option>
                 </select>
             </div>
             <div class="filter-group">
                 <label for="project-filter">Project:</label>
-                <!-- Select này sẽ được Choices.js biến đổi -->
                 <select id="project-filter">
                     <option value="all">All Projects</option>
                 </select>
@@ -50,14 +44,17 @@
         </div>
     </header>
 
-    <!-- ===== SIDEBAR THÔNG TIN (Không thay đổi cấu trúc) ===== -->
+    <!-- ===== INFO SIDEBAR ===== -->
     <div id="info-panel" class="sidebar">
+        <!-- TAY NẮM ĐỂ KÉO GIÃN -->
+        <div id="resize-handle"></div>
+
         <span id="close-btn" class="close-button">&times;</span>
         <div id="info-content">
             <div class="sidebar-header"><i class="fa-solid fa-wind"></i><h2 id="info-project-name">Project Name</h2></div>
             <div class="sidebar-stats">
                 <div class="stat-item">
-                    <i class="fa-solid fa-circle-check"></i><span>Status</span><strong id="info-status">N/A</strong>
+                    <i class="fa-solid fa-circle-check"></i><span>Project Status</span><strong id="info-status">N/A</strong>
                 </div>
                 <div class="stat-item">
                     <i class="fa-solid fa-globe"></i><span>Country</span><strong id="info-country">N/A</strong>
@@ -80,7 +77,6 @@
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- CẬP NHẬT: Thêm file JS của thư viện Choices.js -->
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="country_coords.js"></script>
     <script src="script.js"></script>

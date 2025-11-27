@@ -1,9 +1,9 @@
-/* --- CÀI ĐẶT CHUNG & PHÔNG CHỮ MỚI --- */
+/* --- CÀI ĐẶT CHUNG --- */
 html, body { height: 100%; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; overflow: hidden; background-color: #f4f7f6; }
 body { position: relative; }
 #map { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #a2d1e8; }
 
-/* --- CẬP NHẬT: Sắp xếp lại thanh điều khiển thành một hàng ngang --- */
+/* --- HEADER CONTROL --- */
 .map-controls { position: absolute; top: 15px; right: 15px; display: flex; align-items: center; gap: 10px; z-index: 1000; }
 .filter-container { display: flex; align-items: center; gap: 10px; pointer-events: auto; }
 .filter-group { display: flex; align-items: center; gap: 8px; background-color: rgba(255, 255, 255, 0.85); padding: 8px 12px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); }
@@ -11,13 +11,13 @@ body { position: relative; }
 #status-filter-btn { background-color: #007bff; color: white; border: none; padding: 7px 15px; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.9em; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px; }
 #status-filter-btn:hover { background-color: #0056b3; transform: translateY(-1px); }
 
-/* --- CẬP NHẬT: Tinh chỉnh giao diện cho Choices.js --- */
+/* --- CHOICES JS --- */
 .choices { width: 190px; }
 .choices__inner { font-size: 0.9em; border-radius: 6px !important; border: 1px solid #ddd !important; padding: 5px 10px !important; min-height: auto; background-color: white;}
 .choices__list--dropdown { border-radius: 6px !important; font-size: 0.9em; }
 .choices[data-type*="select-one"]::after { right: 12.5px; }
 
-/* --- CẬP NHẬT: Style cho bộ chọn bản đồ khi nằm trong header --- */
+/* --- LEAFLET CONTROL LAYERS --- */
 .leaflet-control-layers { background: none !important; box-shadow: none !important; border: none !important; backdrop-filter: none !important; padding: 0; margin: 0; }
 .leaflet-control-layers-toggle { width: 42px; height: 42px; background-size: 24px 24px; background-color: white !important; border-radius: 10px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid rgba(222, 222, 222, 0.5); }
 .leaflet-control-layers-expanded { padding: 8px 12px; background-color: rgba(255, 255, 255, 0.85) !important; box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important; backdrop-filter: blur(5px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px !important;}
@@ -54,7 +54,7 @@ body { position: relative; }
 .stats-table .count-cell { text-align: right; font-weight: 600; }
 .stats-table .total-row td { font-weight: bold; border-top: 2px solid #ddd; }
 
-/* --- SIDEBAR & TIÊU ĐỀ (Không thay đổi) --- */
+/* --- SIDEBAR & TIÊU ĐỀ --- */
 .sidebar { position: fixed; top: 0; left: 0; height: 100%; width: 380px; max-width: 90%; background-color: #f8f9fa; box-shadow: 5px 0 25px rgba(0,0,0,0.1); padding: 25px; box-sizing: border-box; overflow-y: auto; z-index: 2000; transform: translateX(-100%); transition: transform 0.4s ease; color: #555; border-left: 3px solid #007bff; }
 .sidebar.sidebar-visible { transform: translateX(0); }
 .sidebar .close-button { top: 15px; right: 20px; font-size: 2.2em; cursor: pointer; color: #aaa; position: absolute; line-height: 1;}
@@ -72,3 +72,18 @@ body { position: relative; }
 .detail-item-value { color: #555; text-align: right; font-weight: 400; }
 .map-title { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 999; pointer-events: none; }
 .map-title h1 { margin: 0; font-size: 1em; color: #444; text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.9); font-weight: 600;}
+
+/* --- RESIZE HANDLE (KÉO GIÃN SIDEBAR) --- */
+#resize-handle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    z-index: 3000;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+#resize-handle:hover { background-color: rgba(0, 123, 255, 0.5); }
+.sidebar.resizing { transition: none !important; user-select: none; }
