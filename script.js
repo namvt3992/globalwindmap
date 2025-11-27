@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 1. CẤU HÌNH VÀ KHỞI TẠO
-    const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSruhHblUuHLmn0AL5SaiQhM1Rm2gvWMRdhgtA5qMfdpdQazLWa8QRyCWkL8g7Id81UUV4KZS7rzpNG/pub?gid=0&single=true&output=csv';
+    const googleSheetUrl = 'csv';
     const map = L.map('map', { minZoom: 2, worldCopyJump: true, zoomControl: false }).setView([20, 0], 2);
     L.control.zoom({ position: 'topleft' }).addTo(map);
 
@@ -249,4 +249,5 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.cursor = 'default';
         }
     });
+
 });
